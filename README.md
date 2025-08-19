@@ -1,31 +1,20 @@
-# ▲ / next-forge
+## Mini Event Manager Page using Next-Forge Turbo template
 
-**Production-grade Turborepo template for Next.js apps.**
+### This App does not use all the possibilities of Next-Forge template, uses only App.
 
-<div>
-  <img src="https://img.shields.io/npm/dy/next-forge" alt="" />
-  <img src="https://img.shields.io/npm/v/next-forge" alt="" />
-  <img src="https://img.shields.io/github/license/vercel/next-forge" alt="" />
-</div>
-
-## Overview
-
-[next-forge](https://github.com/vercel/next-forge) is a [Next.js](https://nextjs.org/) project boilerplate for modern web application. It is designed to be a comprehensive starting point for new apps, providing a solid, opinionated foundation with a minimal amount of configuration.
-
-## Getting Started
-
-Clone the repo using:
-
-```sh
-npx next-forge@latest init
+### How to run:
+```
+git clone https://github.com/pratap-panabaka/pycray-mini-event-manager-page
+cd pycray-mini-event-manager-page
+pnpm install
+pnpm run dev --filter app
 ```
 
-Then read the [docs](https://www.next-forge.com/docs) for more information.
+then copy paste the url http://localhost:3000/events
 
-## Contributors
+### prerequisite:
+node, npm, pnpm
 
-<a href="https://github.com/vercel/next-forge/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=vercel/next-forge" />
-</a>
-
-Made with [contrib.rocks](https://contrib.rocks).
+### Notes:
+Next-Forge templage requires lots of configuration especially setting environmental variables.
+Since I have used them in `.env.local` file, you may see errors on loading the page http://localhost:3000/events or may be redirected to signup/signin.
