@@ -1,2 +1,15 @@
 @import "tailwindcss";
 @import "@repo/design-system/styles/globals.css";
+
+@font-face {
+  font-family: 'kanit';
+  src: url('/fonts/kanit.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Example usage */
+body {
+  background-color: #f7f7f7;
+  font-family: 'kanit', sans-serif;
+}

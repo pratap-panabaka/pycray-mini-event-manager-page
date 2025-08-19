@@ -56,7 +56,7 @@ const PyCray = () => {
     if (stored) {
       try {
         setEntries(JSON.parse(stored));
-      } catch (_err) {}
+      } catch (_err) { }
     }
   }, []);
 
@@ -65,12 +65,15 @@ const PyCray = () => {
   }, [entries]);
 
   return (
-    <div className="mx-auto mt-6 max-w-2xl space-y-6 rounded bg-orange-80 p-4 shadow">
+    <div className="mx-auto pt-8 sm:pt-12 md:pt-16 lg:pt-20 xl:pt-24 2xl:pt-28 max-w-4xl min-h-screen space-y-6 rounded p-4 w-full">
+      <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-center">
+        Mini Event Manager
+      </h1>
       <form onSubmit={handleSubmit} className="space-y-4">
         <div>
           <label
             htmlFor="name"
-            className="block font-medium text-gray-700 text-sm"
+            className="block font-medium text-gray-700"
           >
             Name
           </label>
@@ -80,7 +83,7 @@ const PyCray = () => {
             name="name"
             value={formData.name}
             onChange={handleChange}
-            className="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 shadow-sm focus:border-blue-500 focus:outline-none focus:ring-blue-500"
+            className="mt-1 block w-full rounded-md border border-blue-300 px-3 py-2 shadow-sm focus:border-blue-500 focus:outline-none focus:ring-blue-500"
             autoComplete="off"
             required
           />
@@ -89,7 +92,7 @@ const PyCray = () => {
         <div>
           <label
             htmlFor="date"
-            className="block font-medium text-gray-700 text-sm"
+            className="block font-medium text-gray-700"
           >
             Date
           </label>
@@ -101,7 +104,7 @@ const PyCray = () => {
             min={minDate}
             max={maxDate}
             onChange={handleChange}
-            className="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 shadow-sm focus:border-blue-500 focus:outline-none focus:ring-blue-500"
+            className="mt-1 block w-full rounded-md border border-blue-300 px-3 py-2 shadow-sm focus:border-blue-500 focus:outline-none focus:ring-blue-500"
             required
           />
         </div>
@@ -116,24 +119,28 @@ const PyCray = () => {
 
       {entries.length > 0 && (
         <div className="overflow-x-auto">
-          <h2 className="mb-2 font-semibold text-gray-800 text-lg">Events</h2>
-          <input
-            type="text"
-            placeholder="Search by Event Name..."
-            value={filterText}
-            onChange={(e) => setFilterText(e.target.value)}
-            className="rounded-md border border-gray-300 px-3 py-2 text-sm shadow-sm focus:border-blue-200 focus:outline-none focus:ring-1 focus:ring-blue-200"
-          />
-          <table className="mt-4 min-w-full divide-y divide-gray-200 border border-blue-100">
+          <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-2">
+            <h2 className="text-xl font-semibold text-gray-800 mb-1 md:mb-0">
+              Events
+            </h2>
+            <input
+              type="text"
+              placeholder="Search by Event Name..."
+              value={filterText}
+              onChange={(e) => setFilterText(e.target.value)}
+              className="mt-1 block rounded-md border border-blue-300 px-3 py-2 shadow-sm focus:border-blue-500 focus:outline-none focus:ring-blue-500"
+            />
+          </div>
+          <table className="mt-4 min-w-full divide-y divide-blue-200 border border-blue-300">
             <thead className="bg-gray-50">
               <tr>
-                <th className="px-4 py-2 text-left font-medium text-gray-700 text-sm">
+                <th className="px-4 py-2 text-left font-medium text-gray-700">
                   S.No
                 </th>
-                <th className="px-4 py-2 text-left font-medium text-gray-700 text-sm">
+                <th className="px-4 py-2 text-left font-medium text-gray-700">
                   Event Name
                 </th>
-                <th className="px-4 py-2 text-left font-medium text-gray-700 text-sm">
+                <th className="px-4 py-2 text-left font-medium text-gray-700">
                   Date
                 </th>
                 <th />
@@ -146,16 +153,16 @@ const PyCray = () => {
                 )
                 .map((entry, index) => (
                   <tr key={entry.uuid} className="hover:bg-gray-50">
-                    <td className="px-4 py-2 text-gray-700 text-sm">
+                    <td className="px-4 py-2 text-gray-700">
                       {index + 1}
                     </td>
-                    <td className="px-4 py-2 text-gray-700 text-sm">
+                    <td className="px-4 py-2 text-gray-700">
                       {entry.name}
                     </td>
-                    <td className="px-4 py-2 text-gray-700 text-sm">
+                    <td className="px-4 py-2 text-gray-700">
                       {entry.date}
                     </td>
-                    <td className="px-4 py-2 text-gray-700 text-sm">
+                    <td className="px-4 py-2 text-gray-700">
                       <button id={entry.uuid} onDoubleClick={onDelete}>
                         <TrashIcon className="h-5 w-5" aria-hidden="true" />
                       </button>
