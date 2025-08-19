@@ -4,9 +4,7 @@
   "bin": {
     "next-forge": "dist/index.js"
   },
-  "files": [
-    "dist/index.js"
-  ],
+  "files": ["dist/index.js"],
   "scripts": {
     "build": "turbo build",
     "dev": "turbo dev",
@@ -39,7 +37,8 @@
   "packageManager": "pnpm@10.11.0",
   "dependencies": {
     "@clack/prompts": "^0.11.0",
-    "commander": "^14.0.0"
+    "commander": "^14.0.0",
+    "next": "15.4.2-canary.54"
   },
   "type": "module"
 }
